@@ -1,0 +1,22 @@
+server:
+  port: 7701
+spring:   #服务名称
+  application:
+    name: microservice-user
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm?characterEncoding=UTF8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: tiger
+  jpa:
+    show-sql: true  #要打印sql语句
+    generate-ddl: true  #是否自动建表
+    database: mysql
+eureka:
+  client:
+    register-with-eureka: true  #作为客户端，需要注册到eureka
+    fetch-registry: true  #作为客户端，需要从eureka获取注册信息
+    service-url:
+      defaultZone: http://127.0.0.1:7703/eureka
+  instance:
+    prefer-ip-address: true  #优先使用该服务的IP地址注册到eureka

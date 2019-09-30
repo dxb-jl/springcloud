@@ -1,0 +1,21 @@
+server:
+  port: 7702
+spring:
+  application:
+    name: microservice-movie
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+          defaultZone: http://127.0.0.1:7703/eureka
+  instance:
+      prefer-ip-address: true  #优先使用该服务的IP地址注册到eureka
+      #服务的心跳频率
+      lease-renewal-interval-in-seconds: 5
+      #服务的失效时间
+      lease-expiration-duration-in-seconds: 30
+# 开启Hystrix
+feign:
+  hystrix:
+    enable: true
